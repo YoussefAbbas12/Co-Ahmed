@@ -1,11 +1,4 @@
 {
-  "instructors": [
-    {"img": "images/instractor 1.webp", "name": "Osama Zian"},
-    {"img": "images/instractor 2.webp", "name": "Ahmed Salim"},
-    {"img": "images/instractor 3.webp", "name": "Ahmed Hany"},
-    {"img": "images/instractor 4.webp", "name": "Ahmed Yousry"},
-    {"img": "images/instractor 5.webp", "name": "Mohamed Tarek"}
-  ],
   "fields": [
     {
       "img": "images/programming.webp",
@@ -26,12 +19,76 @@
       "img": "images/skills.webp",
       "title": "تطوير الذات",
       "desc": "امتلك أدوات النجاح الشخصي والقيادي لتكون الرقم الصعب في أي فريق عمل."
+    },
+    {
+      "img": "images/ai.png",
+      "title": "الذكاء الاصطناعي",
+      "desc": "اكتشف أساسيات الذكاء الاصطناعي وتعلم كيفية استخدام أحدث الأدوات والتقنيات لزيادة إنتاجيتك وبناء حلول مبتكرة."
+    },
+    {
+      "img": "images/languages.png",
+      "title": "تعلم اللغات",
+      "desc": "طور مهاراتك اللغوية وتواصل بثقة مع العالم من خلال تعلم لغات جديدة بأساليب عملية وحديثة."
     }
   ],
-"faqs": [
+  "teamProjects": [
+    {
+      "type": "video",
+      "src": "videos/runner.mp4"
+    },
+    {
+      "type": "video",
+      "src": "videos/orange.mp4"
+    },
+    {
+      "type": "video",
+      "src": "videos/mango.mp4"
+    },
+    {
+      "type": "video",
+      "src": "videos/map.mp4"
+    },
+    {
+      "type": "video",
+      "src": "videos/coutch.mp4"
+    },
+    {
+      "type": "image",
+      "src": "videos/full-charge1.jpeg"
+    },
+    {
+      "type": "image",
+      "src": "videos/full-charge2.jpeg"
+    },
+    {
+      "type": "image",
+      "src": "videos/full-charge3.jpeg"
+    },
+    {
+      "type": "image",
+      "src": "videos/full-charge4.jpeg"
+    },
+    {
+      "type": "image",
+      "src": "videos/full-charge5.jpeg"
+    },
+    {
+      "type": "image",
+      "src": "videos/low-charge.jpeg"
+    },
+    {
+      "type": "image",
+      "src": "videos/mirror.jpeg"
+    },
+    {
+      "type": "image",
+      "src": "videos/mirror2.jpeg"
+    }
+  ],
+  "faqs": [
   {
-    "q": "ما هو Event Future Gate؟",
-    "a": "هو إيفنت تعليمي عملي مخصص للشباب، هدفه تعريفك بالمهارات المطلوبة في سوق العمل وإزاي تحوّلها لمصدر دخل حقيقي، من خلال خريطة طريق واضحة وبسيطة."
+    "q": "ما هو Event Break out؟",
+    "a": "هو إيفنت تعليمي عملي مخصص للشباب، هدفه تعريفهم بأساسيات الذكاء الاصطناعي (AI) وطرق استخدامه بشكل صحيح وفعال في الدراسة والعمل، مع تدريب عملي على أشهر الأدوات والتقنيات الحديثة لمواكبة متطلبات سوق العمل."
   },
   {
     "q": "الإيفنت مناسب لمين؟",
@@ -43,11 +100,11 @@
   },
   {
     "q": "هنتكلم عن إيه في اليوم؟",
-    "a": "هنغطي أهم المجالات المطلوبة في سوق العمل: التصميم (Graphic Design)، البرمجة (Programming)، التسويق الرقمي (Digital Marketing)، والمهارات الشخصية (Soft Skills)، مع التركيز على إزاي كل مهارة تتحول لدخل وفرصة عمل."
+    "a": "هنغطي أهم المجالات المطلوبة في سوق العمل: التصميم (Graphic Design)، البرمجة (Programming)، التسويق الرقمي (Digital Marketing)، الذكاء الاصطناعي (Artificial Intelligence)، تعلم اللغات (Languages)، والمهارات الشخصية (Soft Skills)، مع التركيز على التطبيقات العملية وكيفية الاستفادة من كل مجال في تطوير المهارات وخلق فرص مهنية مستقبلية."
   },
   {
     "q": "هل المحتوى نظري ولا عملي؟",
-    "a": "المحتوى مبني على التجربة والواقع العملي، مش كلام نظري، والهدف إنك تخرج فاهم تبدأ منين، تختار إيه، وتكمل إزاي."
+    "a": "المحتوى مبني على التجربة والواقع العملي،والمشاريع التجريبيه مش كلام نظري، والهدف إنك تخرج فاهم تبدأ منين، تختار إيه، وتكمل إزاي."
   },
   {
     "q": "الإيفنت أونلاين ولا أوفلاين؟",

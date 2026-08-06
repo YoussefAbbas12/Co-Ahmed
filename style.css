@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
 
 :root {
-    --primary: #FFD700; /* Gold */
+    --primary: #7d3a85;
+    --primary-glow: #7d3a85;
+    --primary-dark: #a2cef7;
+    /* --primary: #FFD700;
     --primary-glow: rgba(255, 215, 0, 0.4);
-    --primary-dark: #B8860B;
+    --primary-dark: #B8860B; */
     --bg-dark: #050505;
     --text-light: #ffffff;
     --text-muted: #94a3b8;
     --glass: rgba(255, 255, 255, 0.02);
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-hover: rgba(255, 255, 255, 0.05);
-    --accent-blue: #00f2ff;
+    /* --accent-blue: #00f2ff; */
+    --accent-blue: #c4d5e5;
 }
 
 *{
@@ -179,7 +183,7 @@ section {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: #000;
     border: none;
-    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(140, 234, 255, 0.27);
 }
 
 /* Instructor Grid */
@@ -278,6 +282,53 @@ section {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+}
+
+/* Team Projects */
+.team-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.team-project-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.team-project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 45px rgba(255, 215, 0, 0.12);
+}
+
+.team-project-card img,
+.team-project-card video {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    background: #000;
+}
+
+.team-project-info {
+    padding: 24px 24px 28px;
+}
+
+.team-project-info h3 {
+    color: var(--primary);
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.team-project-info p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* FAQ (Restored) */
@@ -389,7 +440,7 @@ section {
     border: none;
     font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(155, 232, 255, 0.3);
     transition: 0.3s;
 }
 
