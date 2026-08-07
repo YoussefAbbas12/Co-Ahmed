@@ -69,6 +69,10 @@
       "src": "videos/sting.mp4"
     },
     {
+      "type": "video",
+      "src": "videos/gemini.mp4"
+    },
+    {
       "type": "image",
       "src": "videos/full-charge1.jpeg"
     },

@@ -32,22 +32,55 @@ const initialSiteData = {
         }
     ],
     teamProjects: [
-        { type: 'video', src: 'videos/runner.mp4' },
         { type: 'video', src: 'videos/orange.mp4' },
         { type: 'video', src: 'videos/mango.mp4' },
         { type: 'video', src: 'videos/map.mp4' },
         { type: 'video', src: 'videos/coutch.mp4' },
-        { type: 'video', src: 'videos/foot-ball.mp4' },
         { type: 'video', src: 'videos/cola.mp4' },
+        { type: 'video', src: 'videos/foot-ball.mp4' },
+        { type: 'video', src: 'videos/runner.mp4' },
         { type: 'video', src: 'videos/ships.mp4' },
         { type: 'video', src: 'videos/sting.mp4' },
+        { type: 'video', src: 'videos/gemini.mp4' },
+        { type: 'image', src: 'videos/co1.jpeg' },
+        { type: 'image', src: 'videos/co2.jpeg' },
         { type: 'image', src: 'videos/full-charge1.jpeg' },
         { type: 'image', src: 'videos/full-charge2.jpeg' },
         { type: 'image', src: 'videos/full-charge3.jpeg' },
+        { type: 'image', src: 'videos/full-charge4.jpeg' },
         { type: 'image', src: 'videos/full-charge5.jpeg' },
         { type: 'image', src: 'videos/low-charge.jpeg' },
         { type: 'image', src: 'videos/mirror.jpeg' },
-        { type: 'image', src: 'videos/mirror2.jpeg' }
+        { type: 'image', src: 'videos/mirror2.jpeg' },
+        { type: 'image', src: 'videos/shadow1.jpeg' },
+        { type: 'image', src: 'videos/shadow2.jpeg' },
+        { type: 'image', src: 'videos/shadow3.jpeg' },
+        { type: 'image', src: 'videos/shadow4.jpeg' },
+        { type: 'image', src: 'videos/shadow5.jpeg' },
+        { type: 'image', src: 'videos/shadow6.jpeg' },
+        { type: 'image', src: 'videos/shadow7.jpeg' },
+        { type: 'image', src: 'videos/shadow8.jpeg' }
+    ],
+    designProjects: [
+        { type: 'image', src: 'videos/design/design1.jpeg' },
+        { type: 'image', src: 'videos/design/design2.jpeg' },
+        { type: 'image', src: 'videos/design/design3.jpeg' },
+        { type: 'image', src: 'videos/design/design4.jpeg' },
+        { type: 'image', src: 'videos/design/design6.jpeg' },
+        { type: 'image', src: 'videos/design/design7.jpeg' },
+        { type: 'image', src: 'videos/design/design8.jpeg' },
+        { type: 'image', src: 'videos/design/design9.jpeg' },
+        { type: 'image', src: 'videos/design/design10.jpeg' },
+        { type: 'image', src: 'videos/design/design11.jpeg' },
+        { type: 'image', src: 'videos/design/design12.jpeg' },
+        { type: 'image', src: 'videos/design/design13.jpeg' },
+        { type: 'image', src: 'videos/design/design14.jpeg' }
+    ],
+    programmingProjects: [
+        { type: 'video', src: 'videos/programming/web1.mp4' },
+        { type: 'video', src: 'videos/programming/web2.mp4' },
+        { type: 'video', src: 'videos/programming/web3.mp4' },
+        { type: 'video', src: 'videos/programming/web4.mp4' }
     ],
     faqs: [
         {
@@ -95,9 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let siteData = initialSiteData;
+    let visibleAIProjectsCount = 6;
+    let visibleDesignProjectsCount = 6;
+    let visibleProgrammingProjectsCount = 6;
 
     function loadData() {
         siteData = initialSiteData;
+        visibleAIProjectsCount = 6;
+        visibleDesignProjectsCount = 6;
+        visibleProgrammingProjectsCount = 6;
         renderData();
     }
 
@@ -114,22 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('');
         }
 
-        // Render Team Projects
-        const projectsContainer = document.querySelector('.team-projects-grid');
-        if (projectsContainer && siteData.teamProjects) {
-            projectsContainer.innerHTML = siteData.teamProjects.map((project, i) => `
-                <div class="team-project-card" data-aos="fade-up" data-aos-delay="${100 + (i * 80)}">
-                    ${project.type === 'video' ? `
-                        <video controls preload="metadata" playsinline>
-                            <source src="${project.src}" type="video/mp4">
-                            المتصفح لا يدعم عرض الفيديو.
-                        </video>
-                    ` : `
-                        <img src="${project.src}" alt="مشروع الفريق">
-                    `}
-                </div>
-            `).join('');
-        }
+        renderProjectSection('ai-projects-grid', siteData.teamProjects, visibleAIProjectsCount);
+        renderProjectSection('design-projects-grid', siteData.designProjects, visibleDesignProjectsCount);
+        renderProjectSection('programming-projects-grid', siteData.programmingProjects, visibleProgrammingProjectsCount);
+
+        updateLoadMoreButton('load-more-ai-projects', siteData.teamProjects, visibleAIProjectsCount);
+        updateLoadMoreButton('load-more-design-projects', siteData.designProjects, visibleDesignProjectsCount);
+        updateLoadMoreButton('load-more-programming-projects', siteData.programmingProjects, visibleProgrammingProjectsCount);
 
         // Render FAQs
         const faqContainer = document.querySelector('.faq-container');
@@ -149,9 +179,69 @@ document.addEventListener('DOMContentLoaded', () => {
             // Re-attach FAQ logic after render
             attachFAQLogic();
         }
+
+        attachTeamProjectsLogic();
         
         // Re-initialize AOS for new elements
         AOS.refresh();
+    }
+
+    function renderProjectSection(containerId, projects, visibleCount) {
+        const container = document.getElementById(containerId);
+        const visible = projects ? projects.slice(0, visibleCount) : [];
+        if (!container) return;
+
+        container.innerHTML = visible.map((project, i) => `
+            <div class="team-project-card" data-aos="fade-up" data-aos-delay="${100 + (i * 80)}">
+                ${project.type === 'video' ? `
+                    <video controls preload="metadata" playsinline>
+                        <source src="${project.src}" type="video/mp4">
+                        المتصفح لا يدعم عرض الفيديو.
+                    </video>
+                ` : `
+                    <img src="${project.src}" alt="مشروع الفريق">
+                `}
+            </div>
+        `).join('');
+    }
+
+    function updateLoadMoreButton(buttonId, projects, visibleCount) {
+        const button = document.getElementById(buttonId);
+        if (!button) return;
+
+        if (projects && projects.length > visibleCount) {
+            button.style.display = 'inline-flex';
+            button.textContent = 'عرض المزيد';
+        } else {
+            button.style.display = 'none';
+        }
+    }
+
+    function attachTeamProjectsLogic() {
+        const aiButton = document.getElementById('load-more-ai-projects');
+        const designButton = document.getElementById('load-more-design-projects');
+        const programmingButton = document.getElementById('load-more-programming-projects');
+
+        if (aiButton) {
+            aiButton.addEventListener('click', () => {
+                visibleAIProjectsCount = siteData.teamProjects.length;
+                renderData();
+            });
+        }
+
+        if (designButton) {
+            designButton.addEventListener('click', () => {
+                visibleDesignProjectsCount = siteData.designProjects.length;
+                renderData();
+            });
+        }
+
+        if (programmingButton) {
+            programmingButton.addEventListener('click', () => {
+                visibleProgrammingProjectsCount = siteData.programmingProjects.length;
+                renderData();
+            });
+        }
     }
 
     function attachFAQLogic() {

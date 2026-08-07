@@ -163,6 +163,7 @@ section {
     justify-content: center;
 }
 
+.load-more-btn,
 .btns span {
     padding: 22px 45px;
     background: rgba(255, 255, 255, 0.03);
@@ -174,11 +175,17 @@ section {
     transition: 0.4s;
     cursor: default;
 }
+.load-more-btn{
+    color: #fff;
+    margin: auto;
+    margin-top: 30px;
+}
 
 .phone-btn{
     
 }
 
+.btns span:nth-child(3) ,
 .btns span:first-child {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: #000;
